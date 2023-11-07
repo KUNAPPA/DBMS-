@@ -1,0 +1,37 @@
+ MYSQL PHP CONNECTIVITY 
+
+<?php
+$hostname = "your_host"; // Change this to the hostname of your MySQL server
+$username = "your_username"; // Change this to your MySQL username
+$password = "your_password"; // Change this to your MySQL password
+$database = "your_database"; // Change this to the name of your MySQL database
+
+// Create a MySQL database connection
+$mysqli = new mysqli($hostname, $username, $password, $database);
+
+// Check for connection errors
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+echo "Connected successfully to MySQL database!";
+?>
+
+<?php
+$tns = "(DESCRIPTION =
+    (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = your_host)(PORT = your_port)))
+    (CONNECT_DATA = (SERVICE_NAME = your_service_name))
+)";
+
+$username = "your_username"; // Change this to your Oracle username
+$password = "your_password"; // Change this to your Oracle password
+
+// Create an Oracle database connection
+$oracle_conn = oci_connect($username, $password, $tns);
+
+if (!$oracle_conn) {
+    die("Connection failed: " . oci_error());
+}
+
+echo "Connected successfully to Oracle database!";
+?>

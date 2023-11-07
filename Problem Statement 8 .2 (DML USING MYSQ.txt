@@ -1,0 +1,41 @@
+Problem Statement 8 (DML USING MYSQL)
+
+
+Branch (Branch ID, Branch_Name, Address)
+
+ 1) create database branch;
+ 2) show databases;
+ 3) use branch;
+ 4)  CREATE TABLE Branch (
+          Branch_ID INT PRIMARY KEY,
+          Branch_Name VARCHAR(255),
+          Address VARCHAR(255)
+      );
+5)  INSERT INTO Branch (Branch_ID, Branch_Name, Address)
+     VALUES (1, 'Branch 1', '123 Main St, City1, Country1'),
+      '456 Elm St, City2, Country2'),
+          (2, 'Branch 2', '456 Elm St, City2, Country2'),
+            (3, 'Branch 3', '789 Oak St, City3, Country3');
+6)  describe Branch;
+7)  select * from Branch;
+8)  create database Account;
+9)  show databases;
+10)  use Account;
+11) CREATE TABLE Account ( Account_no INT PRIMARY KEY,
+         Branch_ID INT,
+         CustID INT,
+         Date_open DATE,
+         Account_type VARCHAR(255),
+         Balance DECIMAL(10, 2)
+     );
+12)  describe Account;
+13)  INSERT INTO Account (Account_no, Branch_ID, CustID, Date_open, Account_type, Balance)
+     VALUES (1, 101, 1001, '2023-01-01', 'Savings', 1000.00),
+            (2, 102, 1002, '2023-02-15', 'Checking', 500.50),
+            (3, 103, 1003, '2023-03-10', 'Savings', 1500.75);
+14)  select * from Account;
+15) select * from Account where Account_type="Savings";(QUERRY)
+16)  SELECT * FROM Customer WHERE Cust_Address = '123 Main St' OR Name LIKE 'A%';(QUEERY)
+17) SELECT * FROM Customer
+     WHERE Balance >= 20000
+     ORDER BY Age;

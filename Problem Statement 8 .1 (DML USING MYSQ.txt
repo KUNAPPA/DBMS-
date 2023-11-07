@@ -1,0 +1,70 @@
+Problem Statement 8 (DML USING MYSQL)
+Create following tables using a given schema and insert appropriate data into the same:
+Customer (CustID, Name, Cust_Address, Phone_no, Email_ID, Age)
+Branch (Branch ID, Branch_Name, Address)
+Account (Account_no, Branch ID, CustID, date_open, Account_type, Balance)
+1. Modify the size of column “Email_Address” to 20 in Customer table.
+2. Change the column “Email_Address” to Not Null in Customer table.
+3. Display the total customers with the balance >50, 000 Rs.
+4. Display average balance for account type=”Saving Account”.
+5. Display the customer details that lives in Pune or name starts with ’A’.
+6. Create a table Saving_Account with (Account_no, Branch ID, CustID, date_open, Balance) using
+Account Table.
+7. Display the customer details Age wise with balance>=20,000Rs
+
+
+
+
+
+1)  sudo mysql -u root -p
+2)  mysql>  create database customer;
+3)  mysql> use customer
+4)  mysql> CREATE TABLE Customer (
+    ->     CustID INT PRIMARY KEY,
+    ->     Name VARCHAR(255),
+    ->     Cust_Address VARCHAR(255),
+    ->     Phone_no VARCHAR(15),
+    ->     Email_ID VARCHAR(255),
+    ->     Age INT
+    -> );
+5)  mysql> describe customer;
+6) mysql> INSERT INTO Customer (CustID, Name, Cust_Address, Phone_no, Email_ID, Age)
+    -> VALUES (1, 'John Doe', '123 Main St', '123-456-7890', 'john@example.com', 30),
+    ->        (2, 'Jane Smith', '456 Elm St', '987-654-3210', 'jane@example.com', 25),
+    ->        (3, 'Alice Johnson', '789 Oak St', '111-222-3333', 'alice@example.com', 35);
+7) mysql>  SELECT * FROM Customer;
+8) querry 1 
+ans -: ALTER TABLE Customer
+MODIFY Email_ID VARCHAR(20);
+9) Change the column “Email_Address” to Not Null in Customer table.
+ANS-: ALTER TABLE Customer
+MODIFY Email_ID VARCHAR(20) NOT NULL;
+
+to show alter command scuseeful 
+DESCRIBE Customer;
+SHOW COLUMNS FROM Customer;
+
+10) mysql> ALTER TABLE Customer
+    -> ADD COLUMN New_Column VARCHAR(50); 
+mysql> ALTER TABLE Customer
+ADD C    -> ADD COLUMN Balance INT;
+
+ mysql> UPDATE Customer
+    -> SET Balance = 50000; ( you can update value upto your count )
+
+
+
+
+
+
+UPDATE Customer
+    SET Balance = 250000;
+
+UPDATE Customer
+    SET Balance = 300000;
+
+UPDATE Customer
+    SET Balance = 750000;
+
+
+
